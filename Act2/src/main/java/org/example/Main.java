@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> nombres = Arrays.asList("Ana", "Pedro", "Sara");
+        List<String> nombres = Arrays.asList("David", "Melisa", "Olivia");
         Function<String, String> transformarMayusculas = (s) -> s.toUpperCase();
         List<String> resultados = transformarLista(nombres, transformarMayusculas);
         System.out.println(resultados); // [ANA, PEDRO, SARA]
