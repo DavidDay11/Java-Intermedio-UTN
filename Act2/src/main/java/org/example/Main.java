@@ -1,22 +1,26 @@
 package org.example;
 
-import java.util.Arrays;
+
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+
+import static org.example.TransformadorDeStrings.transformarLista;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<String> nombres = Arrays.asList("David", "Melisa", "Olivia");
-        Function<String, String> transformarMayusculas = (s) -> s.toUpperCase();
-        List<String> resultados = transformarLista(nombres, transformarMayusculas);
-        System.out.println(resultados); // [ANA, PEDRO, SARA]
+        // Ejemplo de uso
+        List<String> listaOriginal = List.of("uno", "dos", "tres", "cuatro");
+
+        // Definir el método de transformación que convierte una cadena a mayúsculas.
+        Transformador transformadorMayusculas = String::toUpperCase;
+
+        // Transformar la lista original y almacenar los resultados en una nueva lista.
+        List<String> listaTransformada = transformarLista(listaOriginal, transformadorMayusculas);
+
+        // Imprimir la lista transformada.
+        System.out.println("Lista Original: " + listaOriginal);
+        System.out.println("Lista Transformada: " + listaTransformada);
     }
 
-    public static List<String> transformarLista(List<String> lista, Function<String, String> funcion) {
-        return lista.stream()
-                .map(funcion)
-                .collect(Collectors.toList());
-    }
+
 }
